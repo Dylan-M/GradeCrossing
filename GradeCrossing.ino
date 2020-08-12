@@ -23,6 +23,8 @@ bool activated = false;             // Has the sensor been activated
 bool wasActivated = false;          // Was the sensor previously activated
 
 void setup() {
+  Serial.begin(9600);               // start a serial connection on the USB port for debugging
+  Serial.println("Initializing");
   pinMode(ledPinA, OUTPUT);         // declare the ledPinA as an OUTPUT
   pinMode(ledPinB, OUTPUT);         // declare the ledPinB as an OUTPUT
   pinMode(SensorPinA, INPUT);       // declare the first sensor as an input
@@ -31,8 +33,7 @@ void setup() {
   pinMode(usePotPin, INPUT_PULLUP); // declare the pin for using a pot as input_pullup
   digitalWrite(ledPinA, HIGH);      // start with all LEDs turned off
   digitalWrite(ledPinB, HIGH);      // start with all LEDs turned off
-  Serial.begin(9600);               // start a serial connection on the USB port for debugging
-  Serial.println("Initializing");
+  Serial.println("Initialized");
 }
 
 /*
@@ -45,6 +46,10 @@ void loop() {
   }
   // Was a sensor active on this pass?
   activated = (digitalRead(SensorPinA) == HIGH || digitalRead(SensorPinB) == HIGH);
+  if (activated && !wasActivated) {
+    sprintf(buf, "Status of activation: %s", activated ? "true" : "false");
+    Serial.println(buf);
+  }
 
   // If a sensor was activated, start running the lights
   if (activated) {
@@ -62,6 +67,8 @@ void loop() {
     digitalWrite(ledPinA, HIGH);
     digitalWrite(ledPinB, HIGH);
     wasActivated = false;
+    sprintf(buf, "Status of activation: %s", activated ? "true" : "false");
+    Serial.println(buf);
   }
 }
 
