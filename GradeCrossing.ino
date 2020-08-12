@@ -71,12 +71,18 @@ void switchLED() {
   if (even) {
     digitalWrite(ledPinA, HIGH);  // turn the ledPin off
     digitalWrite(ledPinB, LOW);   // turn the ledPin on
-    digitalWrite(13, HIGH);
   } else {
     digitalWrite(ledPinA, LOW);   // turn the ledPin on
     digitalWrite(ledPinB, HIGH);  // turn the ledPin off
-    digitalWrite(13, LOW);
   }
 
   even = !even; // swap even
+}
+
+bool createNewCrossing() {
+  Crossing crossing;
+  // Do Some fun stuff here!
+  if (false)
+    return false;
+  return true;
 }
