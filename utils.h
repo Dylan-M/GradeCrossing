@@ -8,4 +8,4 @@
                 Serial.println(buf);      \
         }      \
         if (!((result) = (type *) calloc ((number), sizeof(type))))     \
-                { perror("SYSERR: malloc failure"); abort(); } } while(0)
+                { Serial.println("SYSERR: malloc failure"); abort(); } } while(0)

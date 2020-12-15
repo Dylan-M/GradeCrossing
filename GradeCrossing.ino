@@ -18,6 +18,9 @@ void setup() {
   Serial.begin(9600);               // start a serial connection on the USB port for debugging
   Serial.println("Initializing");
 
+  // Create the crossings
+  create_crossings();
+
   // Set up the pins for crossings
   struct crossing_data *crossing;
   for (crossing = crossing_list; crossing; crossing = crossing->next) {
@@ -118,7 +121,7 @@ void switchLED(int ledPinA, int ledPinB) {
   even = !even; // swap even
 }
 
-void create_crossings () {
+void create_crossings() {
   struct crossing_data *crossing;
 
   CREATE(crossing, struct crossing_data, 1);

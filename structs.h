@@ -15,10 +15,10 @@ struct crossing_data {
   // for override purposes
   int SensorPin[MAX_SENSORS]  = {-1, -1, -1, -1, -1};
   int OverridePin   = -1;
-  bool activated    = false;             // Has the sensor been activated
+  bool activated    = false;          // Has the sensor been activated
   bool wasActivated = false;          // Was the sensor previously activated
-  bool even         = true;                   // Is the LED flash on the even stroke?
-  bool overridden    = false;
+  bool even         = true;           // Is the LED flash on the even stroke?
+  bool overridden    = false;         // Should the approach activation be overridden?
   unsigned long previousMillis = 0;   // will store last time LED was updated
   struct crossing_data *next;
 };
