@@ -68,7 +68,7 @@ void loop() {
       if (crossing->SensorPin[i] == -1) {
         continue;
       }
-      if (digitalRead(crossing->SensorPin[i]) == HIGH); {
+      if (digitalRead(crossing->SensorPin[i]) == HIGH) {
         crossing->activated = true;
         sprintf(buf, "Sensor pin %d activated", SensorPin[i]);
         Serial.println(buf);
