@@ -56,16 +56,18 @@ void loop() {
   for (crossing = crossing_list; crossing != NULL; crossing = crossing->next) {
     if (crossing->OverridePin != -1) {
       crossing->overridden = (digitalRead(crossing->OverridePin) == LOW);
+      Serial.println("Override activated");
     }
     bool island = false;
     crossing->activated = false;
     // Was a sensor active on this pass?
-    for (int i = 0; i < MAX_SENSORS && crossing->activated == false; i++) {
+    for (int i = 0; i < MAX_SENSORS; i++) {
       if (crossing->SensorPin[i] == -1) {
         continue;
       }
       if (digitalRead(crossing->SensorPin[i]) == HIGH); {
         crossing->activated = true;
+        Serial.println("At least one sensor activated");
       }
       island = (i == 2 && digitalRead(crossing->SensorPin[i]) == HIGH);
     }
