@@ -43,7 +43,7 @@ void loop() {
   // If a sensor was activated, start running the lights
   if (activated) {
     unsigned long milliseconds = millis(); // Get our current milliseconds
-    if ((milliseconds  - previousMillis) >= potVal) {
+    if ((milliseconds - previousMillis) >= potVal) {
       sprintf(buf, "Switching LEDs at %lu millis, previous millis of %lu with a interval of %lu\r\n", milliseconds, previousMillis, potVal);
       Serial.print(buf);
       switchLED();

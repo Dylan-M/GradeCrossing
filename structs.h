@@ -6,9 +6,12 @@
  */
 
  struct crossing {
-  int LED_PinA;
-  int LED_PinB;
-  int SensorPin;
+  int LED_PinA    = -1;
+  int LED_PinB    = -1;
+  int SensorPin   = -1;
+  int OverridePin = -1;
+  int bytePosit   = -1;
+  struct crossing nextCrossing;
  };
 
  typedef struct crossing Crossing;
