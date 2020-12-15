@@ -134,8 +134,8 @@ void create_crossings () {
   crossing->next = crossing_list;
   crossing->LED_PinA = 3;
   crossing->LED_PinB = 4;
-  crossing->SensorPin[0] = 5;
-  crossing->SensorPin[1] = 6;
+  crossing->SensorPin[0] = 7;
+  crossing->SensorPin[1] = 8;
   // Can add up to SensorPin[4] here, for a total of 5 per crossing.
   crossing->OverridePin = -1; // Set this to a valid pin number to enable usage
   crossing_list = crossing;
@@ -146,8 +146,9 @@ void create_crossings () {
   crossing->next = crossing_list;
   crossing->LED_PinA = 3;
   crossing->LED_PinB = 4;
-  crossing->SensorPin[0] = 5;
-  crossing->SensorPin[1] = 6;
+  crossing->SensorPin[0] = 9;
+  crossing->SensorPin[1] = 10;
+  crossing->SensorPin[2] = 11;
   // Can add up to SensorPin[4] here, for a total of 5 per crossing.
   crossing->OverridePin = -1; // Set this to a valid pin number to enable usage
   crossing_list = crossing;
