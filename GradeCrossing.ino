@@ -53,7 +53,7 @@ void loop() {
   }
 
   struct crossing_data *crossing;
-  for (crossing = crossing_list; crossing; crossing = crossing->next) {
+  for (crossing = crossing_list; crossing != NULL; crossing = crossing->next) {
     if (crossing->OverridePin != -1) {
       crossing->overridden = (digitalRead(crossing->OverridePin) == LOW);
     }
