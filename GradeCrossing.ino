@@ -54,12 +54,17 @@ void loop() {
 
   struct crossing_data *crossing;
   for (crossing = crossing_list; crossing; crossing = crossing->next) {
+    if (crossing->OverridePin != -1) {
+      crossing->overridden = (digitalRead(crossing->OverridePin) == LOW);
+    }
+    bool island = false;
     // Was a sensor active on this pass?
     for (int i = 0; i < MAX_SENSORS && crossing->activated == false; i++) {
       if (crossing->SensorPin[i] == -1) {
         continue;
       }
       crossing->activated = (digitalRead(crossing->SensorPin[i]) == HIGH);
+      island = (i == 2 && digitalRead(crossing->SensorPin[i]) == HIGH);
     }
 
     if (crossing->activated && !crossing->wasActivated) {
@@ -68,7 +73,7 @@ void loop() {
     }
   
     // If a sensor was activated, start running the lights
-    if (crossing->activated) {
+    if (crossing->activated && (!crossing->overridden || island)) {
       unsigned long milliseconds = millis(); // Get our current milliseconds
       if ((milliseconds - crossing->previousMillis) >= potVal) {
         sprintf(buf, "Switching LEDs at %lu millis, previous millis of %lu with a interval of %lu\r\n", milliseconds, crossing->previousMillis, potVal);

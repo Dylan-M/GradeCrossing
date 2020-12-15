@@ -18,6 +18,7 @@ struct crossing_data {
   bool activated    = false;             // Has the sensor been activated
   bool wasActivated = false;          // Was the sensor previously activated
   bool even         = true;                   // Is the LED flash on the even stroke?
+  bool overridden    = false;
   unsigned long previousMillis = 0;   // will store last time LED was updated
   struct crossing_data *next;
 };
