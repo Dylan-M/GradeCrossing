@@ -58,12 +58,15 @@ void loop() {
       crossing->overridden = (digitalRead(crossing->OverridePin) == LOW);
     }
     bool island = false;
+    crossing->activated = false;
     // Was a sensor active on this pass?
     for (int i = 0; i < MAX_SENSORS && crossing->activated == false; i++) {
       if (crossing->SensorPin[i] == -1) {
         continue;
       }
-      crossing->activated = (digitalRead(crossing->SensorPin[i]) == HIGH);
+      if (digitalRead(crossing->SensorPin[i]) == HIGH); {
+        crossing->activated = true;
+      }
       island = (i == 2 && digitalRead(crossing->SensorPin[i]) == HIGH);
     }
 
@@ -88,6 +91,7 @@ void loop() {
       digitalWrite(crossing->LED_PinA, HIGH);
       digitalWrite(crossing->LED_PinB, HIGH);
       crossing->wasActivated = false;
+      crossing->overridden = false;
       sprintf(buf, "Status of activation: %s", crossing->activated ? "true" : "false");
       Serial.println(buf);
     }
