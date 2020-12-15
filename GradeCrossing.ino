@@ -70,7 +70,8 @@ void loop() {
       }
       if (digitalRead(crossing->SensorPin[i]) == HIGH); {
         crossing->activated = true;
-        Serial.println("At least one sensor activated");
+        sprintf(buf, "Sensor pin %d activated", SensorPin[i]);
+        Serial.println(buf);
       }
       island = (i == 2 && digitalRead(crossing->SensorPin[i]) == HIGH);
     }
