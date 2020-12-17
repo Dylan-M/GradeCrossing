@@ -127,10 +127,13 @@ void create_crossings() {
 
   CREATE(crossing, struct crossing_data, 1);
   crossing->next = crossing_list;
-  crossing->LED_PinA = 3;
-  crossing->LED_PinB = 4;
-  crossing->SensorPin[0] = 5;
-  crossing->SensorPin[1] = 6;
+  crossing->LED_PinA = 2;
+  crossing->LED_PinB = 3;
+  crossing->SensorPin[0] = 4;
+  crossing->SensorPin[1] = 5;
+  crossing->SensorPin[2] = -1;
+  crossing->SensorPin[3] = -1;
+  crossing->SensorPin[4] = -1;
   // Can add up to SensorPin[4] here, for a total of 5 per crossing.
   crossing->OverridePin = -1; // Set this to a valid pin number to enable usage
   crossing_list = crossing;
@@ -138,10 +141,13 @@ void create_crossings() {
 /* Crossing 2
   CREATE(crossing, struct crossing_data, 1);
   crossing->next = crossing_list;
-  crossing->LED_PinA = 7;
-  crossing->LED_PinB = 8;
-  crossing->SensorPin[0] = 9;
-  crossing->SensorPin[1] = 10;
+  crossing->LED_PinA = 6;
+  crossing->LED_PinB = 7;
+  crossing->SensorPin[0] = 8;
+  crossing->SensorPin[1] = 9;
+  crossing->SensorPin[2] = -1;
+  crossing->SensorPin[3] = -1;
+  crossing->SensorPin[4] = -1;
   // Can add up to SensorPin[4] here, for a total of 5 per crossing.
   crossing->OverridePin = -1; // Set this to a valid pin number to enable usage
   crossing_list = crossing;
@@ -150,11 +156,13 @@ void create_crossings() {
 /* Crossing 3
   CREATE(crossing, struct crossing_data, 1);
   crossing->next = crossing_list;
-  crossing->LED_PinA = 11;
-  crossing->LED_PinB = 12;
-  crossing->SensorPin[0] = A3;
-  crossing->SensorPin[1] = A4;
-  crossing->SensorPin[2] = A5;
+  crossing->LED_PinA = 10;
+  crossing->LED_PinB = 11;
+  crossing->SensorPin[0] = 12;
+  crossing->SensorPin[1] = A3;
+  crossing->SensorPin[2] = A4;
+  crossing->SensorPin[3] = -1;
+  crossing->SensorPin[4] = -1;
   // Can add up to SensorPin[4] here, for a total of 5 per crossing.
   crossing->OverridePin = -1; // Set this to a valid pin number to enable usage
   crossing_list = crossing;
