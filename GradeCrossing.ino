@@ -122,6 +122,7 @@ void switchLED(int ledPinA, int ledPinB) {
   even = !even; // swap even
 }
 
+// Create crossings. Can include as many as your Arduino can support pin-wise.
 void create_crossings() {
   struct crossing_data *crossing;
 
@@ -131,10 +132,8 @@ void create_crossings() {
   crossing->LED_PinB = 3;
   crossing->SensorPin[0] = 4;
   crossing->SensorPin[1] = 5;
-  crossing->SensorPin[2] = -1;
-  crossing->SensorPin[3] = -1;
-  crossing->SensorPin[4] = -1;
   // Can add up to SensorPin[4] here, for a total of 5 per crossing.
+  // See structs.h for more information
   crossing->OverridePin = -1; // Set this to a valid pin number to enable usage
   crossing_list = crossing;
 
@@ -145,10 +144,8 @@ void create_crossings() {
   crossing->LED_PinB = 7;
   crossing->SensorPin[0] = 8;
   crossing->SensorPin[1] = 9;
-  crossing->SensorPin[2] = -1;
-  crossing->SensorPin[3] = -1;
-  crossing->SensorPin[4] = -1;
   // Can add up to SensorPin[4] here, for a total of 5 per crossing.
+  // See structs.h for more information
   crossing->OverridePin = -1; // Set this to a valid pin number to enable usage
   crossing_list = crossing;
 */
@@ -161,9 +158,8 @@ void create_crossings() {
   crossing->SensorPin[0] = 12;
   crossing->SensorPin[1] = A3;
   crossing->SensorPin[2] = A4;
-  crossing->SensorPin[3] = -1;
-  crossing->SensorPin[4] = -1;
   // Can add up to SensorPin[4] here, for a total of 5 per crossing.
+  // See structs.h for more information
   crossing->OverridePin = -1; // Set this to a valid pin number to enable usage
   crossing_list = crossing;
 */
