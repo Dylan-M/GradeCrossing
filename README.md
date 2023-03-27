@@ -6,7 +6,7 @@ Code has optional capability for 2 sensors for detection and a\
 potentiometer for flash rate
 
 # Digital Pins
-13: Input. Connect to ground to enable the potentiometer\
+13: Input. Connect to ground to enable the potentiometer
 
 ## User Defined Digital Pins
 In GradeCrossing.ino starting on line 125, the user must define the pins for each grade crossing.\
